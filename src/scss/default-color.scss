@@ -1,0 +1,7 @@
+@import "app";  // 提取默认配置
+
+// 全局样式颜色
+body{
+  background-color: $box-default-color;
+  color: $box-text-color;
+}

@@ -1,0 +1,66 @@
+.foot {
+  background-color: #5b070a;
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height:10px;
+  .main-nav {
+    background-color: #152f15;
+    width: 100%;
+    display: block;
+    text-align: center;
+    ul {
+      li {
+        display: inline-block;
+        a{
+          color:rgba(255,255,255,0.5);
+        i {
+          font-size: 50px;
+          &:hover{
+            -webkit-transition: all .5s ease-out .0s;
+            transition: all .5s ease-out .0s;
+            color:rgba(255,255,255,1);
+            font-size: 64px;
+          }
+
+        }
+          &:hover{
+            -webkit-transition: all 3s ease-out .0s;
+            transition: all 3s ease-out .0s;
+            color:rgba(255,255,255,1);
+          }
+        }
+      }
+    }
+  }
+}
+
+#foot {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #0086b3;
+  background: url("../inc/bg-foot.png") no-repeat bottom center fixed;
+  background-size:100% 100%;
+  ul{
+    li{
+      display: inline-block;
+      a{
+        display: block;
+        color:rgba(255,255,255,1);
+        filter:alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5;
+        &.on{
+          filter:alpha(Opacity=100);-moz-opacity:1;opacity: 1;
+        }
+        &:hover{
+          -webkit-transition: all .5s ease-out .0s;
+          transition: all .5s ease-out .0s;
+          filter:alpha(Opacity=100);-moz-opacity:1;opacity: 1;
+        }
+      }
+    }
+  }
+}
