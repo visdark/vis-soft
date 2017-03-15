@@ -5,7 +5,7 @@
     <title>程序正在启动中...</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <!--字体文件包，下载后直接覆盖即可-->
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_5for9w0qaz90y66r.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_kt91jtjpwvasv2t9.css">
     <!--主界面样式文件组-->
     <link rel="stylesheet" href="../scss/home.css">
     <!--动画插件可选择添加-->
@@ -19,134 +19,412 @@
     <!--默认颜色样式表-->
     <link rel="stylesheet" href="../scss/default-color.css">
     <style type="text/css">
-
-
-
     </style>
     <script type="text/javascript">
-        document.onmousemove=function (ev)
-        {
-            var oEvent=ev||event;
-            var oDiv=document.getElementById('foot');
-            var aImg=oDiv.getElementsByTagName('img');
-            var d=0;
-            var iMax=200;
-            var i=0;
+        //导航特效JS
+        document.onmousemove = function (ev) {
+            var oEvent = ev || event;
+            var oDiv = document.getElementById('foot');
+            var aImg = oDiv.getElementsByTagName('img');
+            var d = 0;
+            var iMax = 200;
+            var i = 0;
 
-            function getDistance(obj)
-            {
+            function getDistance(obj) {
                 return Math.sqrt
                 (
-                        Math.pow(obj.offsetLeft+oDiv.offsetLeft-oEvent.clientX+obj.offsetWidth/2, 2)+
-                        Math.pow(obj.offsetTop+oDiv.offsetTop-oEvent.clientY+obj.offsetHeight/2, 2)
+                        Math.pow(obj.offsetLeft + oDiv.offsetLeft - oEvent.clientX + obj.offsetWidth / 2, 2) +
+                        Math.pow(obj.offsetTop + oDiv.offsetTop - oEvent.clientY + obj.offsetHeight / 2, 2)
                 );
             }
 
-            for(i=0;i<aImg.length;i++)
-            {
-                d=getDistance(aImg[i]);
-                d=Math.min(d, iMax);
+            for (i = 0; i < aImg.length; i++) {
+                d = getDistance(aImg[i]);
+                d = Math.min(d, iMax);
 
-                aImg[i].width=((iMax-d)/iMax)*64+64;
+                aImg[i].width = ((iMax - d) / iMax) * 24 + 48;
             }
         };
+        //点击效果示范
         var isdb;
-        function aa(){
-            isdb=false;
+        function aa() {
+            isdb = false;
             window.setTimeout(cc, 500);
-            function cc(){
-                if(isdb!=false)return;
+            function cc() {
+                if (isdb != false)return;
                 alert("这是单击")
             }
         }
-        function bb(){
-            isdb=true;
+        function bb() {
+            isdb = true;
             alert("这是双击")
         }
-    </script>
+        function close(id) {
+            document.getElementById(id).style.display = "none";
+        }
+        // 按钮添加属性on 时间添加属性go
+        function doAct(s, m) {
+            var t = document.getElementById(m),
+                    c = s.className;
+            if (c != null && c.indexOf(' on') > -1) {
+                s.className = c.replace(' on', '');
+                t.className = t.className.replace(' go', '');
+            } else {
+                s.className = c + ' on';
+                t.className = t.className + ' go';
+            }
+        }
+//鼠标经过和显示
+        function MM_over(s,m) {
+            var t = document.getElementById(m);
+            c = s.className;
+            t.className = t.className.replace(' rep', '');
+            t.className = t.className + ' block';
+        }
+        function MM_out(s,m) {
+            var t = document.getElementById(m);
+            c = s.className;
+            t.className = t.className.replace(' block', '');
+            t.className = t.className + ' rep';
 
+        }
+    </script>
 </head>
 <body>
-
 <header class="flex">
-    <div class="top-nav"><i class="icon iconfont icon-zuixiaohua"></i><i class="icon iconfont icon-zuidahua"></i><i
-            class="icon iconfont icon-guanbi bg-red"></i></div>
-    <div class="top col">
-        FXBTG 程式V1.0
+    <div class="top-nav">
+        <i class="icon iconfont icon-zuixiaohua"></i>
+        <i class="icon iconfont icon-zuidahua"></i>
+        <i class="icon iconfont icon-guanbi bg-red"></i>
     </div>
+    <div class="top col">FXBTG 程式V1.0</div>
 </header>
 <div class="box">
-  <div class="box-left"> <div class="title f-16"><div class="box-nav p-l-10"> <i class="icon iconfont icon-home"></i> 主界面</div><a href="#" class="on col f-14">产品列表</a><a href="#" class="col f-14">持仓产品</a><a href="#" class="col f-14">历史记录</a> </div>
-      <div class="box-title f-14 p-l-10">还未登录，<a href="#">请登录..</a></div>
-      <div class="clear"></div>
-      <ul class="f-12" id="pro-list">
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-1" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-          <li class="flex color-0" onclick="aa()" ondblclick="bb()"><div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div><div class="col">  O <span>0.389886</span></div><div class="col"> C <span>0.388967</span></div><div class="col"> H <span>0.41554</span></div><div class="col"> L <span>0.36555</span></div></li>
-
-
-
-      </ul>
-    </div>
-
-    <div class="col box-right"><div class="title"> <a href="#" class="f-14 col on">美元/欧元</a><a href="#" class="col f-14">日元/美元</a><a href="#" class="col f-14">美元/黄金</a><a href="#" class="col f-14">美元/石油</a><a href="#" class="f-14 col">美元/欧元</a><a href="#" class="col f-14">日元/美元</a><a href="#" class="col f-14">美元/黄金</a><a href="#" class="col f-14">美元/石油</a></div>
-       </div>
-
-    <div class="box-foot f-12 p-l-10">FXBTG关于CNH300产品政策说明</div>
-</div>
-
-
-
-
-    <div id="foot">
-        <ul>
-            <li class="p-l-10 p-r-10"><a href="" class="f-14 on"> <img src="images/1.png" width="64"></a></li>
-            <li class="p-l-10 p-r-10"><a href=""  class="f-14"> <img src="images/2.png" width="64"></a></li>
-            <li class="p-l-10 p-r-10"><a href="" class="f-14">  <img src="images/3.png" width="64"></a></li>
-            <li class="p-l-10 p-r-10"><a href="" class="f-14">  <img src="images/4.png" width="64"></a></li>
-            <li class="p-l-10 p-r-10"><a href="" class="f-14">  <img src="images/5.png" width="64"></a></li>
-            <li class="p-l-10 p-r-10"><a href="" class="f-14">  <img src="images/6.png" width="64"></a></li>
-            <li class="p-l-10 p-r-10"><a href="" class="f-14"> <img src="images/7.png" width="64"></a></li>
+    <div class="box-left" id="leftbox">
+        <div class="title f-16">
+            <div class="box-nav p-l-10"><i class="icon iconfont icon-home"></i> 主界面</div>
+            <a href="#" class="on f-14 p-l-30 p-r-30">产品列表</a></div>
+        <div class="box-title f-14 p-l-10">还未登录，<a href="#">请登录..</a></div>
+        <div class="clear"></div>
+        <ul class="f-12" id="pro-list">
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>最后一列显示欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
         </ul>
     </div>
+    <div class="col box-right">
+        <div class="title">
+            <i class="icon iconfont icon-close bg-red p-r-10 p-l-10" onClick="doAct(this, 'leftbox');"></i>
+            <a href="#" class="f-14 col on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">美元/石油-示范文字比较多时<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <i class="icon iconfont icon-buju-0 bg-red p-r-10 p-l-10" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')"></i>
+        </div>
+<div class="buju" id="buju" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')">
+    <ul>
+        <li><span class="left">1：</span><div class="col-"> <i class="icon iconfont icon-buju-1-1" onClick=""></i></div></li>
+        <li><span class="left">2：</span><div class="col-"><i class="icon iconfont icon-buju-2-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-2-2" onClick=""></i></div></li>
+        <li><span class="left">3：</span><div class="col-"><i class="icon iconfont icon-buju-3-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-2" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-3" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-4" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-5" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-6" onClick=""></i></div></li>
+        <li><span class="left">4：</span><div class="col-"><i class="icon iconfont icon-buju-4-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-2" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-3" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-4" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-5" onClick=""></i></div></li>
+        <li><span class="left">其他：</span><div class="col-"><i class="icon iconfont icon-buju-5-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-2" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-3" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-4" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-5" onClick=""></i></div></li>
+    </ul>
 
+</div>
+        <div class="buju-box">
+        这里是布局模式
+</div>
 
+        <div class="box-foot f-12 p-l-10"><i class="icon iconfont icon-xinwen"></i> FXBTG关于CNH300产品政策说明</div>
+    </div>
+</div>
+<div id="foot">
+    <ul>
+        <li class="p-l-10 p-r-10"><a href="" class="on"> <img src="images/1.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/2.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/3.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/4.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/5.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/6.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/7.png" width="48"></a></li>
+    </ul>
+</div>
 </body>
 </html>

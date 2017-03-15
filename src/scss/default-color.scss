@@ -5,3 +5,98 @@ body{
   background-color: $box-default-color;
   color: $box-text-color;
 }
+//BOX样式中颜色定义
+.box {
+  background-color: #13252f;
+}
+
+.title {
+  background-color: #011926;
+  a {
+    color: rgba(255,255,255,0.5);
+    &.on {
+      background-color: #1b303c;
+      color: rgba(255,255,255,0.8);
+    }
+    &:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+  }
+}
+
+.box-nav {
+  background-color: #011926;
+}
+.box-title{
+  background-color: #1b303c;
+}
+
+.box-foot {
+  background-color: #032530;
+}
+
+li.color-0{
+  &:hover{
+    cursor:pointer;
+    .box-nav{
+      background-color: #116411;
+      color: white;
+    }
+    .col{
+      background-color: #41a041;
+      span{
+        color: white;
+      }
+    }
+  }
+  .col{
+    span{
+      color: #41a041;
+    }
+  }
+
+}
+li.color-1{
+  &:hover{
+    cursor:pointer;
+    .box-nav{
+      background-color: #5b070a;
+      color: white;
+    }
+    .col{
+      background-color: #c23943;
+      span{
+        color: white;
+      }
+    }
+  }
+  .col{
+    span{
+      color: #c23943;
+    }
+  }
+
+}
+#pro-list{
+  li{
+    border-bottom: solid 1px #415f67;
+    .col{
+      border-left: solid 1px #415f67;
+    }
+  }
+}
+// 特殊图标 上升和下降
+.icon-0:before {
+  content: "\e616";
+  color: #41a041;
+  &:hover{
+    color: white;
+  }
+}
+
+.icon-1:before { content: "\e618";
+   color: #c23943;
+   &:hover{
+     color: white;
+   }
+ }
