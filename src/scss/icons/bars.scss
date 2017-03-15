@@ -1,0 +1,40 @@
+//*-- bars --*\\
+.icono-bars {
+  width: $U20;
+  height: $U2;
+  box-shadow: inset 0 0 0 $U32, 0 -1*$U6, 0 $U6;
+  margin: $U16 $U7;
+}
+
+.icono-bars2 {
+  width: $U20;
+  height: $U1;
+  box-shadow: inset 0 0 0 0, 0 $U6;
+  margin: $U16 $U7;
+}
+
+.icono-max {
+
+  height: $U15;
+  width: $U20;
+  margin: $U9 $U8 $U5 $U8;
+  border: $U1 solid;
+  &:after {
+    content: '';
+    height: $U8;
+    width: $U12;
+    position: absolute;
+    background-color: transparent;
+    border: $U1 solid;
+    top:  $U4;
+    left:  $U5;
+  }
+}
+
+.icono-hamburger {
+  @extend .icono-bars; //will be deprecate
+}
+
+.icono-mini {
+  @extend .icono-bars2; //will be deprecate
+}
