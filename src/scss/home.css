@@ -33,7 +33,9 @@ summary {
 
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease; }
 
 a {
   color: rgba(255, 255, 255, 0.8);

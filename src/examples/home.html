@@ -88,6 +88,11 @@
             t.className = t.className + ' rep';
 
         }
+        // 布局样式添加CSS
+        function add_css(s, m) {
+            var t = document.getElementById(m);
+            t.className = "buju-box " + s;
+        }
     </script>
 </head>
 <body>
@@ -104,7 +109,7 @@
         <div class="title f-16">
             <div class="box-nav p-l-10"><i class="icon iconfont icon-home"></i> 主界面</div>
             <a href="#" class="on f-14 p-l-30 p-r-30">产品列表</a></div>
-        <div class="box-title f-14 p-l-10">还未登录，<a href="#">请登录..</a></div>
+        <div class="box-title f-14 p-l-10">还未登录，<a href="login.html">请登录..</a>  <a href="home-login.html">登录后界面</a></div>
         <div class="clear"></div>
         <ul class="f-12" id="pro-list">
             <li class="flex color-1" onclick="aa()" ondblclick="bb()">
@@ -388,28 +393,134 @@
                 <div class="col"> L <span>0.36555</span></div>
             </li>
         </ul>
+
+
+
+
+
+
+
     </div>
     <div class="col box-right">
-        <div class="title">
-            <i class="icon iconfont icon-close bg-red p-r-10 p-l-10" onClick="doAct(this, 'leftbox');"></i>
-            <a href="#" class="f-14 col on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
-            <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
-            <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
-            <a href="#" class="col f-14">美元/石油-示范文字比较多时<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
-            <i class="icon iconfont icon-buju-0 bg-red p-r-10 p-l-10" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')"></i>
+        <div class="title" style="overflow: hidden">
+
+            <!--<a href="#" class="f-14 col on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">美元/石油-示范文字比较多时<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="f-14 col">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">控制在8个<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+            <!--<a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+<div class="" style="width:100%;display: block">
+
+    <i class="icon iconfont icon-close bg-red left" onClick="doAct(this, 'leftbox');" style="display: inline-block;box-sizing: border-box"></i>
+    <i class="icon iconfont icon-buju-0 bg-red right" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')"></i>
+
+    <a href="#" class="f-14 col on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">美元/石油-示范文..<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="f-14 col">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">控制在8个<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+    <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+
+<!--<div class="col" style="display: inline-block; overflow: auto;height: 3vh;overflow-y: hidden; white-space:nowrap;text-overflow:ellipsis;">-->
+    <!--<a href="#" class="f-14 on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/石油-示范文字比较多时<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">控制在8个<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+<!--</div>-->
+    <!--<a href="#" class="f-14 on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/石油-示范文字比较多时<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">控制在8个<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+    <!--<a href="#" class="f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>-->
+
+
+</div>
+
+
         </div>
 <div class="buju" id="buju" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')">
     <ul>
-        <li><span class="left">1：</span><div class="col-"> <i class="icon iconfont icon-buju-1-1" onClick=""></i></div></li>
-        <li><span class="left">2：</span><div class="col-"><i class="icon iconfont icon-buju-2-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-2-2" onClick=""></i></div></li>
-        <li><span class="left">3：</span><div class="col-"><i class="icon iconfont icon-buju-3-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-2" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-3" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-4" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-5" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-3-6" onClick=""></i></div></li>
-        <li><span class="left">4：</span><div class="col-"><i class="icon iconfont icon-buju-4-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-2" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-3" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-4" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-4-5" onClick=""></i></div></li>
-        <li><span class="left">其他：</span><div class="col-"><i class="icon iconfont icon-buju-5-1" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-2" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-3" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-4" onClick=""></i></div><div class="col-"><i class="icon iconfont icon-buju-5-5" onClick=""></i></div></li>
+        <li><span class="left f-14">1：</span>
+            <div class="col-"><i class="icon iconfont icon-buju-1-1" onClick="add_css('vis-1-1', 'vis-flex');"></i>
+            </div>
+        </li>
+        <li><span class="left f-14">2：</span>
+            <div class="col-"><i class="icon iconfont icon-buju-2-1" onClick="add_css('vis-2-1', 'vis-flex');""></i>
+            </div>
+            <div class="col-"><i class="icon iconfont icon-buju-2-2" onClick="add_css('vis-2-2', 'vis-flex');"></i>
+            </div>
+        </li>
+        <li><span class="left f-14">3：</span>
+            <div class="col-"><i class="icon iconfont icon-buju-3-1" onClick="add_css('vis-3-1', 'vis-flex');"></i>
+            </div>
+            <div class="col-"><i class="icon iconfont icon-buju-3-2" onClick="add_css('vis-3-2', 'vis-flex');"></i>
+            </div>
+            <div class="col-"><i class="icon iconfont icon-buju-3-3" onClick="add_css('vis-3-3', 'vis-flex');"></i>
+            </div>
+            <div class="col-"><i class="icon iconfont icon-buju-3-4" onClick="add_css('vis-3-4', 'vis-flex');"></i>
+            </div>
+            <div class="col-"><i class="icon iconfont icon-buju-3-5" onClick="add_css('vis-3-5', 'vis-flex');"></i>
+            </div>
+            <div class="col-"><i class="icon iconfont icon-buju-3-6" onClick="add_css('vis-3-6', 'vis-flex');"></i>
+            </div>
+        </li>
+        <li><span class="left f-14">4：</span>
+            <div class="col-"><i class="icon iconfont icon-buju-4-2" onClick="add_css('vis-4-2', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-4-1" onClick="add_css('vis-4-1', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-4-3" onClick="add_css('vis-4-3', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-4-4" onClick="add_css('vis-4-4', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-4-5" onClick="add_css('vis-4-5', 'vis-flex');"></i></div>
+        </li>
+        <li><span class="left f-14">其他：</span>
+            <div class="col-"><i class="icon iconfont icon-buju-5-2" onClick="add_css('vis-5-2', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-5-1" onClick="add_css('vis-5-1', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-5-3" onClick="add_css('vis-5-3', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-5-4" onClick="add_css('vis-5-4', 'vis-flex');"></i></div>
+            <div class="col-"><i class="icon iconfont icon-buju-5-5" onClick="add_css('vis-5-5', 'vis-flex');"></i></div>
+        </li>
     </ul>
 
 </div>
-        <div class="buju-box">
-        这里是布局模式
+        <div class="buju-box vis-4-5" id="vis-flex">
+            <div class="vis">
+                <div class="vis-col"><div class="vis-box"> 盒子模型1</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型2</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型3</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型4</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型5</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型6</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型7</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型8</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型1</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型2</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型3</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型4</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型5</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型6</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型7</div></div>
+                <div class="vis-col"><div class="vis-box"> 盒子模型8</div></div>
+
+
+            </div>
 </div>
 
         <div class="box-foot f-12 p-l-10"><i class="icon iconfont icon-xinwen"></i> FXBTG关于CNH300产品政策说明</div>

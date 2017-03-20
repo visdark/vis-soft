@@ -7,30 +7,40 @@
   display: flex;
   overflow: hidden;
 }
-.left{
+
+.left {
   float: left;
 }
-.right{
+
+.right {
   float: right;
 }
+
 .title {
   background-color: #011926;
   height: 3vh;
   line-height: 3vh;
-  overflow: hidden;
+  overflow:auto;
+  overflow-y: hidden;
   display: flex;
-  a {
-    display: inline-block;
+  i{
+width: 2vw;
     text-align: center;
-    color: rgba(255,255,255,0.5);
+}
+  a {
+    display: inline;
+    text-align: center;
+    width: 10vw;
+    float: left;
+    color: rgba(255, 255, 255, 0.5);
     &.on {
-       background-color: #1b303c;
-       color: rgba(255,255,255,0.8);
-     }
+      background-color: #1b303c;
+      color: rgba(255, 255, 255, 0.8);
+    }
     &:hover {
       -webkit-transition: all 1s ease-out .0s;
       transition: all 1s ease-out .0s;
-      background-color: rgba(255,255,255,0.2);
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
 }
@@ -39,9 +49,12 @@
   width: 40%;
   background-color: black;
   height: 90vh;
+  display: block;
+  position: static;
 }
 
 .box-right {
+  width: 60%;
   -webkit-transition: all 1s ease-out 0s;
   transition: all 1s ease-out 0s;
 }
@@ -51,7 +64,8 @@
   display: inline-block;
   background-color: #011926;
 }
-.box-title{
+
+.box-title {
   background-color: #1b303c;
   height: 3vh;
   line-height: 3vh;
@@ -68,97 +82,99 @@
   line-height: 3vh;
 }
 
-
-
-li.color-0{
-  &:hover{
-    cursor:pointer;
-    .box-nav{
+li.color-0 {
+  &:hover {
+    cursor: pointer;
+    .box-nav {
       background-color: #116411;
       color: white;
       -webkit-transition: all 1s ease-out 0s;
       transition: all 1s ease-out 0s;
     }
-    .col{
+    .col {
       color: white;
       background-color: #41a041;
       -webkit-transition: all 1s ease-out 0s;
       transition: all 1s ease-out 0s;
-      span{
+      span {
         color: white;
       }
     }
   }
-    .col{
-      span{
-        color: #41a041;
-      }
+  .col {
+    span {
+      color: #41a041;
     }
+  }
 
 }
-li.color-1{
-  &:hover{
-    cursor:pointer;
-    .box-nav{
+
+li.color-1 {
+  &:hover {
+    cursor: pointer;
+    .box-nav {
       background-color: #5b070a;
       color: white;
       -webkit-transition: all 1s ease-out 0s;
       transition: all 1s ease-out 0s;
     }
-    .col{
+    .col {
       color: white;
       background-color: #c23943;
       -webkit-transition: all 1s ease-out 0s;
       transition: all 1s ease-out 0s;
-      span{
+      span {
         color: white;
       }
     }
   }
-  .col{
-    span{
+  .col {
+    span {
       color: #c23943;
     }
   }
 
 }
-#pro-list{
+
+#pro-list {
   min-height: 40vh;
   max-height: 81vh;
-  overflow:auto;
+  overflow: auto;
   overflow-x: hidden;
   background-color: black;
-  li{
+  li {
     line-height: 24px;
     height: 24px;
     border-bottom: solid 1px #415f67;
-    .col{
+    .col {
       border-left: solid 1px #415f67;
       padding: 0 10px;
-      span{
+      span {
         float: right;
       }
     }
   }
 }
+
 // 特殊图标 上升和下降
 .icon-0:before {
   content: "\e616";
   color: #41a041;
-  &:hover{
+  &:hover {
     color: white;
   }
 }
 
-.icon-1:before { content: "\e618";
+.icon-1:before {
+  content: "\e618";
   color: #c23943;
-  &:hover{
+  &:hover {
     color: white;
   }
 }
+
 //关闭事件
-@keyframes donghua2
-{
+@keyframes donghua2 {
   from {
     left: -40%;
     opacity: 0;
@@ -166,20 +182,20 @@ li.color-1{
     transform: translate3d(-100%, 0, 0);
     position: absolute;
   }
-90%{
-  left: 0;
-  opacity: 1;
-  -webkit-transform: none;
-  transform: none;
-  display: block;
-  position: absolute;
-}
+  90% {
+    left: 0;
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    display: block;
+    position: absolute;
+  }
   to {
-position: static;
+    position: static;
   }
 }
-@keyframes donghua1
-{
+
+@keyframes donghua1 {
   from {
     left: 0;
     opacity: 1;
@@ -195,100 +211,528 @@ position: static;
     position: absolute;
   }
 }
-@keyframes donghua3
-{
-  0% {height: 0}
-  90% {height: auto}
-  100% {height: auto;display: block}
-}
-@keyframes donghua4
-{
-  0% {opacity:1}
-  90% {opacity:0}
-  100% {opacity:0;display: none}
-}
-.box-left.go{
-  animation: donghua1 1s 1;
-  -moz-animation: donghua1 1s 1;	/* Firefox */
-  -webkit-animation: donghua1 1s 1;	/* Safari 和 Chrome */
-  -o-animation: donghua1 1s 1;	/* Opera */
-  animation-fill-mode: forwards;
-}
-.box-left{
-  animation: donghua2 1s 1;
-  -moz-animation: donghua2 1s 1;	/* Firefox */
-  -webkit-animation: donghua2 1s 1;	/* Safari 和 Chrome */
-  -o-animation: donghua2 1s 1;	/* Opera */
-  animation-fill-mode: forwards;
-}
-.icon-close{
-  cursor:pointer;
-  background-color: transparent;
-  &:hover{
-    -webkit-transition: all 1s ease-out 0s;
-    transition: all 1s ease-out 0s;
-    background-color: rgba(255,255,255,0.2);
+
+@keyframes donghua3 {
+  0% {
+    height: 0
+  }
+  90% {
+    height: auto
+  }
+  100% {
+    height: auto;
+    display: block
   }
 }
-.icon-close:before { content: "\e61a";
+
+@keyframes donghua4 {
+  0% {
+    opacity: 1
+  }
+  90% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0;
+    display: none
+  }
 }
+
+.box-left.go {
+  animation: donghua1 1s 1;
+  -moz-animation: donghua1 1s 1; /* Firefox */
+  -webkit-animation: donghua1 1s 1; /* Safari 和 Chrome */
+  -o-animation: donghua1 1s 1; /* Opera */
+  animation-fill-mode: forwards;
+}
+
+.box-left {
+  animation: donghua2 1s 1;
+  -moz-animation: donghua2 1s 1; /* Firefox */
+  -webkit-animation: donghua2 1s 1; /* Safari 和 Chrome */
+  -o-animation: donghua2 1s 1; /* Opera */
+  animation-fill-mode: forwards;
+}
+
+.icon-close {
+  cursor: pointer;
+  background-color: transparent;
+  &:hover {
+    -webkit-transition: all 1s ease-out 0s;
+    transition: all 1s ease-out 0s;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.icon-close:before {
+  content: "\e61a";
+}
+
 .icon-close.on:before {
-    content: "\e619";
+  content: "\e619";
 }
+
 //布局盒子模型
-.buju{
+.buju {
   background-color: #011926;
   position: absolute;
   right: 0;
   display: none;
   padding: .4vh;
   overflow: hidden;
-  width: 20vw;
+  width: 300px;
   border: solid 1px #436169;
-  &.block{
+  &.block {
     animation: fadeIn 1s 1;
     -webkit-animation: fadeIn 1s 1;
     animation-fill-mode: forwards;
     display: block;
   }
-  &.rep{
+  &.rep {
     animation: flipOutY 1s 1;
     -webkit-animation: flipOutY 1s 1;
     animation-fill-mode: forwards;
     display: block;
   }
-  ul{
-    li{
+  ul {
+    li {
       width: 100%;
       display: flex;
       flex-direction: row;
-      border-bottom:dotted 1px #415f67;
+      border-bottom: dotted 1px #415f67;
       line-height: 36px;
       height: 36px;
-      span{
-        width: 4vw;
+      span {
+        width: 60px;
         text-align: right;
       }
-      .col-{
+      .col- {
+        cursor: pointer;
         text-align: center;
         display: block;
         width: 26px;
-        margin:5px 5px;
+        margin: 5px 5px;
         background-color: #182e3a;
         line-height: 26px;
         height: 26px;
         font-size: 16px;
         border-radius: 5px;
-        &:hover{background-color: #7eb2c0;}
+        &:hover {
+          background-color: #436169;
+        }
 
       }
     }
   }
 }
-.buju-box{
-  display: flex;
+
+$flex-base: 16.66667%;
+.buju-box {
   width: 100%;
   height: 84vh;
-  background-color: #011926;
-  overflow: hidden;
+  display: block;
+  overflow: auto;
+  overflow-x: hidden;
+  .vis {
+
+    background-color: #13252f;
+    .vis-col {
+      .vis-box {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        background-color: #13252f;
+        border: solid 1px black;
+      }
+    }
+  }
+  &.vis-1-1 {
+    .vis {
+      .vis-col {
+        width: 100%;
+        height: 84vh;
+        display: block;
+      }
+    }
+  }
+  &.vis-2-1 {
+    .vis {
+      .vis-col {
+        width: 100%;
+        height: 42vh;
+        display: block;
+      }
+    }
+  }
+  &.vis-2-2 {
+    .vis {
+      .vis-col {
+        width: 50%;
+        height: 84vh;
+        float: left;
+      }
+    }
+  }
+  &.vis-3-1 {
+    .vis {
+      .vis-col {
+        &:nth-child(3n-2) {
+          width: 100%;
+          height: 42vh;
+        }
+        &:nth-child(3n-1) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(3n) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-3-2 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(3n-2) {
+          width: 50%;
+          height: 84vh;
+          float: left;
+        }
+        &:nth-child(3n-1) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(3n) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-3-3 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(3n-2) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(3n-1) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(3n) {
+          width: 100%;
+          height: 42vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-3-4 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(3n-2) {
+          width: 50%;
+          height: 84vh;
+          float: right;
+        }
+        &:nth-child(3n-1) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(3n) {
+          width: 50%;
+          height: 42vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-3-5 {
+    .vis {
+      display: block;
+      .vis-col {
+        width: 33.3333333%;
+        height: 84vh;
+        float: left;
+      }
+    }
+  }
+  &.vis-3-6 {
+    .vis {
+      display: block;
+      .vis-col {
+        width: 100%;
+        height: (84vh/3);
+        float: left;
+      }
+    }
+  }
+  &.vis-4-1 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(4n-3) {
+          width: 100%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(4n-2) {
+          width: 33.3333333%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(4n-1) {
+          width: 33.3333333%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(4n) {
+          width: 33.3333333%;
+          height: 42vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-4-2 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(4n-3) {
+          width: 50%;
+          height: 84vh;
+          float: left;
+        }
+        &:nth-child(4n-2) {
+          width: 50%;
+          height: (84vh/3);
+          float: left;
+        }
+        &:nth-child(4n-1) {
+          width: 50%;
+          height: (84vh/3);
+          float: left;
+        }
+        &:nth-child(4n) {
+          width: 50%;
+          height: (84vh/3);
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-4-3 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(4n-3) {
+          width: 50%;
+          height: 84vh;
+          float: right;
+        }
+        &:nth-child(4n-2) {
+          width: 50%;
+          height: (84vh/3);
+          float: left;
+        }
+        &:nth-child(4n-1) {
+          width: 50%;
+          height: (84vh/3);
+          float: left;
+        }
+        &:nth-child(4n) {
+          width: 50%;
+          height: (84vh/3);
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-4-4 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(4n-3) {
+          width: 33.3333333%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(4n-2) {
+          width: 33.3333333%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(4n-1) {
+          width: 33.3333333%;
+          height: 42vh;
+          float: left;
+        }
+        &:nth-child(4n) {
+          width: 100%;
+          height: 42vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-4-5 {
+    .vis {
+      display: block;
+      .vis-col {
+          width: 50%;
+          height: 42vh;
+          float: left;
+      }
+    }
+  }
+  &.vis-5-1 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(5n-4) {
+          width: 100%;
+          height: 60vh;
+          float: left;
+        }
+        &:nth-child(5n-3) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+        &:nth-child(5n-2) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+        &:nth-child(5n-1) {
+            width: 25%;
+            height: 24vh;
+            float: left;
+          }
+        &:nth-child(5n) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-5-2 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(5n-4) {
+          width: 60%;
+          height: 84vh;
+          float: left;
+        }
+        &:nth-child(5n-3) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+        &:nth-child(5n-2) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+        &:nth-child(5n-1) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+        &:nth-child(5n) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-5-3 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(5n-4) {
+          width: 60%;
+          height: 84vh;
+          float: right;
+        }
+        &:nth-child(5n-3) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+        &:nth-child(5n-2) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+        &:nth-child(5n-1) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+        &:nth-child(5n) {
+          width: 40%;
+          height: 21vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-5-4 {
+    .vis {
+      display: block;
+      .vis-col {
+        &:nth-child(5n-4) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+        &:nth-child(5n-3) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+        &:nth-child(5n-2) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+        &:nth-child(5n-1) {
+          width: 25%;
+          height: 24vh;
+          float: left;
+        }
+        &:nth-child(5n) {
+          width: 100%;
+          height: 60vh;
+          float: left;
+        }
+      }
+    }
+  }
+  &.vis-5-5 {
+    .vis {
+      display: block;
+      .vis-col {
+          width: 25%;
+          height: 21vh;
+          float: left;
+      }
+    }
+  }
 }

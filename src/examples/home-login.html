@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>程序正在启动中...</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!--字体文件包，下载后直接覆盖即可-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_kt91jtjpwvasv2t9.css">
+    <!--主界面样式文件组-->
+    <link rel="stylesheet" href="../scss/home.css">
+    <!--动画插件可选择添加-->
+    <link rel="stylesheet" href="../scss/animate.css">
+    <!--顶部导航关闭按钮组-->
+    <link rel="stylesheet" href="../scss/top-nav.css">
+    <!--页脚样式组件-->
+    <link rel="stylesheet" href="../scss/foot.css">
+    <!--盒子样式组件-->
+    <link rel="stylesheet" href="../scss/box.css">
+    <!--登陆后界面改变-->
+    <link rel="stylesheet" href="../scss/login.css">
+    <!--默认颜色样式表-->
+    <link rel="stylesheet" href="../scss/default-color.css">
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+        //导航特效JS
+        document.onmousemove = function (ev) {
+            var oEvent = ev || event;
+            var oDiv = document.getElementById('foot');
+            var aImg = oDiv.getElementsByTagName('img');
+            var d = 0;
+            var iMax = 200;
+            var i = 0;
+
+            function getDistance(obj) {
+                return Math.sqrt
+                (
+                        Math.pow(obj.offsetLeft + oDiv.offsetLeft - oEvent.clientX + obj.offsetWidth / 2, 2) +
+                        Math.pow(obj.offsetTop + oDiv.offsetTop - oEvent.clientY + obj.offsetHeight / 2, 2)
+                );
+            }
+
+            for (i = 0; i < aImg.length; i++) {
+                d = getDistance(aImg[i]);
+                d = Math.min(d, iMax);
+
+                aImg[i].width = ((iMax - d) / iMax) * 24 + 48;
+            }
+        };
+        //点击效果示范
+        var isdb;
+        function aa() {
+            isdb = false;
+            window.setTimeout(cc, 500);
+            function cc() {
+                if (isdb != false)return;
+                alert("这是单击")
+            }
+        }
+        function bb() {
+            isdb = true;
+            alert("这是双击")
+        }
+        function close(id) {
+            document.getElementById(id).style.display = "none";
+        }
+        //鼠标经过和显示
+        function MM_over(s, m) {
+            var t = document.getElementById(m);
+            c = s.className;
+            t.className = t.className.replace(' rep', '');
+            t.className = t.className + ' block';
+        }
+        function MM_out(s, m) {
+            var t = document.getElementById(m);
+            c = s.className;
+            t.className = t.className.replace(' block', '');
+            t.className = t.className + ' rep';
+
+        }
+        // 布局样式添加CSS
+        function add_css(s, m) {
+            var t = document.getElementById(m);
+            t.className = "buju-box " + s;
+        }
+        // 登录的时候 点击效果
+        // 按钮添加属性on 给事件1添加属性go 给事件2也添加go 相比于未登录时候多了一个属性
+        function doAct(s, m, n) {
+            var t = document.getElementById(m),
+                    w = document.getElementById(n),
+                    c = s.className;
+            if (c != null && c.indexOf(' on') > -1) {
+                s.className = c.replace(' on', '');
+                t.className = t.className.replace(' go', '');
+                w.className = w.className.replace(' go', '');
+            } else {
+                s.className = c + ' on';
+                t.className = t.className + ' go';
+                w.className = w.className + ' go';
+            }
+        }
+        // 简易标签页
+        function tabChange(obj,id)
+        {
+            var arrayli = obj.parentNode.getElementsByTagName("li"); //获取li数组
+            var arrayul = document.getElementById(id).getElementsByTagName("ul"); //获取ul数组
+            for(i=0;i<arrayul.length;i++)
+            {
+                if(obj==arrayli[i])
+                {
+                        arrayli[i].className = arrayli[i].className + " on";
+                        arrayul[i].className = "";
+
+                }
+                else
+                {
+                    arrayli[i].className = arrayli[i].className.replace(' on', '');
+                    arrayul[i].className = "hidden";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<header class="flex">
+    <div class="top-nav">
+        <i class="icon iconfont icon-zuixiaohua"></i>
+        <i class="icon iconfont icon-zuidahua"></i>
+        <i class="icon iconfont icon-guanbi bg-red"></i>
+    </div>
+    <div class="top col">FXBTG 程式V1.0</div>
+</header>
+<div class="box">
+    <div class="box-left" id="leftbox">
+        <div class="title f-16">
+            <div class="box-nav p-l-10"><i class="icon iconfont icon-home"></i> 主界面</div>
+            <a href="#" class="f-14 col on" onClick="tab(this);">产品列表</a> <a href="#" class="f-14 col" onClick="tab(this);">持仓产品</a><a href="#" class="f-14 col" onClick="tab(this);">历史交易</a>
+        </div>
+        <div class="box-title f-14 p-l-10">欢迎你的到来<a href="login-index.html">FXBTG游客</a> <a href="home.html">未登录界面</a>
+        </div>
+        <div class="clear"></div>
+        <ul class="f-12 login-pro-list" id="pro-list">
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-1" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-1"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+            <li class="flex color-0" onclick="aa()" ondblclick="bb()">
+                <div class="box-nav p-l-10"><i class="icon iconfont icon-0"></i>欧元/美元</div>
+                <div class="col"> O <span>0.389886</span></div>
+                <div class="col"> C <span>0.388967</span></div>
+                <div class="col"> H <span>0.41554</span></div>
+                <div class="col"> L <span>0.36555</span></div>
+            </li>
+           只示范3个
+            <div class="tabbox">
+                <div class="tabmenu">
+                    <ul>
+                        <li ondblclick="tabChange(this,'tabcontent')" class="go">军事</li>
+                        <li ondblclick="tabChange(this,'tabcontent')" class="go">娱乐</li>
+                        <li ondblclick="tabChange(this,'tabcontent')" class="go">国内</li>
+                        <li ondblclick="tabChange(this,'tabcontent')" class="go">国外</li>
+                        <li ondblclick="tabChange(this,'tabcontent')" class="go">游戏</li>
+                    </ul>
+                </div>
+                <div id="tabcontent">
+                    <ul name="tabul">
+                        <li><a href="#">1111111111111111111111</a></li>
+                        <li><a href="#">1111111111111111111111</a></li>
+                        <li><a href="#">1111111111111111111111</a></li>
+                        <li><a href="#">1111111111111111111111</a></li>
+                        <li><a href="#">1111111111111111111111</a></li>
+                        <li><a href="#">1111111111111111111111</a></li>
+                    </ul>
+                    <ul class="hidden">
+                        <li><a href="#">2222222222222222222222</a></li>
+                        <li><a href="#">2222222222222222222222</a></li>
+                        <li><a href="#">2222222222222222222222</a></li>
+                        <li><a href="#">2222222222222222222222</a></li>
+                        <li><a href="#">2222222222222222222222</a></li>
+                        <li><a href="#">2222222222222222222222</a></li>
+                    </ul>
+                    <ul class="hidden">
+                        <li><a href="#">3333333333333333333333</a></li>
+                        <li><a href="#">3333333333333333333333</a></li>
+                        <li><a href="#">3333333333333333333333</a></li>
+                        <li><a href="#">3333333333333333333333</a></li>
+                        <li><a href="#">3333333333333333333333</a></li>
+                        <li><a href="#">3333333333333333333333</a></li>
+                    </ul>
+                    <ul class="hidden">
+                        <li><a href="#">4444444444444444444444</a></li>
+                        <li><a href="#">4444444444444444444444</a></li>
+                        <li><a href="#">4444444444444444444444</a></li>
+                        <li><a href="#">4444444444444444444444</a></li>
+                        <li><a href="#">4444444444444444444444</a></li>
+                        <li><a href="#">4444444444444444444444</a></li>
+                    </ul>
+                    <ul class="hidden">
+                        <li><a href="#">5555555555555555555555</a></li>
+                        <li><a href="#">5555555555555555555555</a></li>
+                        <li><a href="#">5555555555555555555555</a></li>
+                        <li><a href="#">5555555555555555555555</a></li>
+                        <li><a href="#">5555555555555555555555</a></li>
+                        <li><a href="#">5555555555555555555555</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </ul>
+
+        <div class="login-buy-list" id="buy-list">
+            新的已购列表
+        </div>
+
+
+    </div>
+    <div class="col box-right">
+        <div class="title">
+            <i class="icon iconfont icon-close bg-red p-r-10 p-l-10" onClick="doAct(this, 'leftbox');"></i>
+            <a href="#" class="f-14 col on">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">美元/石油-示范文字比较多时<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="f-14 col">美元/欧元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">控制在8个<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">日元/美元<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+            <a href="#" class="col f-14">美元/黄金<i class="icon iconfont icon-guanbi bg-red f-14 right p-r-10" onClick=""></i></a>
+
+
+            <i class="icon iconfont icon-buju-0 bg-red p-r-10 p-l-10" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')"></i>
+        </div>
+        <div class="buju" id="buju" onmouseover="MM_over(this, 'buju')" onmouseout="MM_out(this, 'buju')">
+            <ul>
+                <li><span class="left f-14">1：</span>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-1-1" onClick="add_css('vis-1-1', 'vis-flex');"></i>
+                    </div>
+                </li>
+                <li><span class="left f-14">2：</span>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-2-1" onClick="add_css('vis-2-1', 'vis-flex');""></i>
+                    </div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-2-2" onClick="add_css('vis-2-2', 'vis-flex');"></i>
+                    </div>
+                </li>
+                <li><span class="left f-14">3：</span>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-3-1" onClick="add_css('vis-3-1', 'vis-flex');"></i>
+                    </div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-3-2" onClick="add_css('vis-3-2', 'vis-flex');"></i>
+                    </div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-3-3" onClick="add_css('vis-3-3', 'vis-flex');"></i>
+                    </div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-3-4" onClick="add_css('vis-3-4', 'vis-flex');"></i>
+                    </div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-3-5" onClick="add_css('vis-3-5', 'vis-flex');"></i>
+                    </div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-3-6" onClick="add_css('vis-3-6', 'vis-flex');"></i>
+                    </div>
+                </li>
+                <li><span class="left f-14">4：</span>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-4-2" onClick="add_css('vis-4-2', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-4-1" onClick="add_css('vis-4-1', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-4-3" onClick="add_css('vis-4-3', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-4-4" onClick="add_css('vis-4-4', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-4-5" onClick="add_css('vis-4-5', 'vis-flex');"></i></div>
+                </li>
+                <li><span class="left f-14">其他：</span>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-5-2" onClick="add_css('vis-5-2', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-5-1" onClick="add_css('vis-5-1', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-5-3" onClick="add_css('vis-5-3', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-5-4" onClick="add_css('vis-5-4', 'vis-flex');"></i></div>
+                    <div class="col-">
+                        <i class="icon iconfont icon-buju-5-5" onClick="add_css('vis-5-5', 'vis-flex');"></i></div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="buju-box vis-4-5" id="vis-flex">
+            <div class="vis">
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型1</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型2</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型3</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型4</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型5</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型6</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型7</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型8</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型1</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型2</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型3</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型4</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型5</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型6</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型7</div>
+                </div>
+                <div class="vis-col">
+                    <div class="vis-box"> 盒子模型8</div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="box-foot f-12 p-l-10"><i class="icon iconfont icon-xinwen"></i> FXBTG关于CNH300产品政策说明</div>
+    </div>
+</div>
+<div id="foot">
+    <ul>
+        <li class="p-l-10 p-r-10"><a href="" class="on"> <img src="images/1.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/2.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/3.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/4.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/5.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/6.png" width="48"></a></li>
+        <li class="p-l-10 p-r-10"><a href="" class=""> <img src="images/7.png" width="48"></a></li>
+    </ul>
+</div>
+</body>
+</html>
